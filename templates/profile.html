@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+
+<h3 style=" margin-left: 5%; margin-top: 5%; margin-bottom: 1%;"> Hello {{login}} !</h3><br>
+
+<table class="table" style="width:70%; margin-left: 5%; margin-bottom: 5%;">
+<tr><th> Name: </th><td> {{name}} </td></tr>
+<tr><th> Mail: </th><td> {{mail}} </td></tr>
+<tr><th> Total spendings: </th><td> {{'%0.2f'| format(spendings|float)}} </td></tr>
+</table>
+
+
+
+<h3 style=" margin-left: 5%;"> Your WishList:</h3>
+<br>
+<table class="table table-hover" style="width:90%; margin-bottom: 10%;" align="center">
+    <thead>
+        <tr>
+            <th> Title:</th>
+            <th> Author:</th>
+            <th>Action:</th>
+        </tr>
+    </thead>
+    <tbody>
+        {%for row in wishlist: %}
+        <tr>
+            {%for col in row[1:]: %}
+            <td>{{col}}</td>
+            {%endfor%}
+            <td><a href="/details/{{row[0]}}">Details</a><br><a href="/unwish/{{row[0]}}">Drop</a></td>
+        </tr>
+        {%endfor%}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<br><br><br>
+
+
+
+
+<form action="/login" method="post">
+    <table class="table" style="width:30%" align="center">
+        <tr>
+            <td><th>Login:</th></td><td><input style="width:100%" type="text" name="login"></td>
+        </tr>
+
+        <tr>
+            <td><th>Password:</th></td><td><input style="width:100%" type="password" name="password"> </td>
+        </tr>
+
+        {% if error %}
+            <td colspan="3" align="center"><p class=error><strong>Error:</strong> {{ error }}</td>
+        {% endif %}
+
+        <tr>
+            <td>
+                <th></th>
+            </td>
+            <td>
+                <div align="center">
+                    <input class="btn btn-default" type="submit" value="Log In!">
+                </div>
+            </td>
+       </tr>
+
+
+        <td colspan="3" align="center"><a href="signup"> Still not registered? Register now! </a></td>
+    </table>
+</form>
+
+
+<br><br><br>
+
+
+{% endblock %}

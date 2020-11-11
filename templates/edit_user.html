@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<form action="/edit_user/{{result[0]}}" method="POST">
+
+<table class="table" style=" width:40%;" align="center">
+    <tr><th>               Registration Date: </th><td> {{result[4]}} </td></tr>
+    <tr><th style="width:30%"> Login: </th><td><input type="text" value="{{result[0]}}" size="40"  name="login"    style="width:100%"  required></td></tr>
+    <tr><th > Name: </th><td><input type="text" value="{{result[1]}}" size="40"  name="name"     style="width:100%"  required ></td></tr>
+    <tr><th>  Mail: </th><td><input type="text" value="{{result[2]}}" size="40"  name="mail"      style="width:100%"  required ></td></tr>
+
+    <tr><th>  Rank: </th><td>
+        <select name="rank" class="w3-select">
+            <option value="{{ result[3] }}"> {{ result[3] }} </option>
+            {% if result[3] == 'admin' %} <option value = "user" > user </option> {% endif %}
+            {% if result[3] == 'user' %} <option value = "admin" > admin </option> {% endif %}
+        </select>
+        </td></tr>
+
+
+
+
+
+
+    <tr><th></th><td>
+<div align="center">
+<input type="submit" class="btn btn-default" name="save" value="Save changes!">
+    <a href="/users"><input type="button" class="btn btn-default" value="Back"></a>
+</div></td></tr>
+  </table>
+</form>
+
+
+
+
+{% endblock %}

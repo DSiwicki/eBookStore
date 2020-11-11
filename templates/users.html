@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<form class="navbar-form navbar-left" action="/users" method="POST" style="margin-left: 10%; margin-bottom: 3%;">
+    <div class="input-group" >
+        <input class="form-control" placeholder="Search" name="search_value" id="srch-term" type="text">
+        <div class="input-group-btn">
+            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+        </div>
+    </div>
+</form>
+
+
+<table class="table table-hover" style="width: 80%; margin-top: 3%;" align="center">
+    <thead>
+        <tr>
+            <th> Name </th>
+            <th> Login </th>
+            <th> Mail </th>
+            <th> Rank </th>
+            <th> Registration Date </th>
+            <th> Last Login </th>
+            <th> Action </th>
+        </tr>
+    </thead>
+    <tbody>
+        {%for row in results: %}
+        <tr>
+            {%for col in row: %}
+            <td>{{col}}</td>
+            {%endfor%}
+            <td align = "left">
+                <a href="/edit_user/{{row[1]}}"> Edit </a><br>
+                <a href="/delete_user/{{row[1]}}"> Delete </a>
+            </td>
+
+        </tr>
+        {%endfor%}
+    </tbody>
+</table>
+
+
+{% endblock %}

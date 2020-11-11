@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<form action="/edit_ebook/{{result[0]}}" method="POST">
+
+<table class="table" style="width:50%" align="center">
+    <tr><th style="width:30%"> Title: </th><td><input type="text" value="{{result[1]}}" size="40"  name="title"     style="width:100%"  required ></td></tr>
+    <tr><th>                  Author: </th><td><input type="text" value="{{result[2]}}" size="40"  name="author"    style="width:100%"  required></td></tr>
+    <tr><th>                    Year: </th><td><input type="text" value="{{result[3]}}" size="40"  name="year"      style="width:100%"  required ></td></tr>
+    <tr><th>             Price [PLN]: </th><td><input type="text" value="{{result[4]}}" size="40"  name="price"     style="width:100%"  required></td></tr>
+    <tr><th>                    ISBN: </th><td><input type="text" value="{{result[5]}}" size="40"  name="isbn"      style="width:100%"  required></td></tr>
+    <tr><th>               Publisher: </th><td><input type="text" value="{{result[6]}}" size="40"  name="publisher" style="width:100%"  required></td></tr>
+    <tr><th>Details:</th><td><textarea name="details" style = "max-width: 100%; width: 100%; height: 500px;resize: none; text-align: justify; white-space: normal;" >{{result[7]}}</textarea></td></tr>
+
+
+    <tr><th></th><td>
+<div align="center">
+<input type="submit" class="btn btn-default" name="save" value="Save changes!">
+    <a href="/all_ebooks"><input type="button" class="btn btn-default" value="Back"></a>
+</div></td></tr>
+
+  </table>
+</form>
+
+
+
+
+{% endblock %}

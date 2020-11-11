@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+
+
+
+
+<h3 style="margin-left: 5%; margin-top: 3%; margin-bottom: 3%;"> {{details[1]}} </h3><br>
+
+<table class="table" style="width:70%; margin-left: 5%; margin-bottom: 5%;">
+<tr><th style="width:30%; " >Author: </th><td align = "right"> {{details[2]}} </td></tr>
+<tr><th>ISBN: </th><td align = "right"> {{details[3]}} </td></tr>
+<tr><th>Year: </th><td align = "right"> {{details[4]}} </td></tr>
+<tr><th>Publisher: </th><td align = "right"> {{details[5]}} </td></tr>
+<tr><th>Price [PLN]: </th><td align = "right"> {{'%0.2f'| format(details[6]|float)}} </td></tr>
+<tr><th>Details: </th><td style="text-align: justify;"> {{details[7]}} </td></tr>
+
+
+<tr>
+    <th>
+    </th>
+    <td>
+    <a href="/order/{{details[0]}}"><input type="button" class="btn btn-default" value="Buy"></a>
+    {% if wished == 0 %} <a href="/wish/{{details[0]}}"><input type="button" class="btn btn-default" value="Add to WishList!"></a>
+    {% else %} <a href="/unwish/{{details[0]}}"><input type="button"  class="btn btn-outline-danger" value="Drop from WishList!"></a>
+    {%endif %}
+    <a href="/search"><input type="button" class="btn btn-default" value="Back"></a>
+    </td>
+</tr>
+
+
+</table>
+
+
+
+
+
+{% endblock %}

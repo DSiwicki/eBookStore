@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+
+<form action="/delete_user/{{results[0]}}" method="POST">
+
+
+
+<table class="table" style="width: 40%; margin-top: 10%;" align="center">
+    <tr><th style="width:30%">Login: </th><td  align = "right"> {{results[0]}} </td></tr>
+    <tr><th> Name: </th><td  align = "right"> {{results[1]}} </td></tr>
+    <tr><th> Mail: </th><td  align = "right"> {{results[2]}} </td></tr>
+    <tr><th> Rank: </th><td  align = "right"> {{results[3]}} </td></tr>
+    <tr><th> Registration Date: </th><td  align = "right"> {{results[4]}} </td></tr>
+
+    <tr><th></th><td>
+    <div align="center">
+        <a href="/users"><input type="submit" class="btn btn-default" name="save" value="Delete User!"> </a>
+        <a href="/users"><input type="button" class="btn btn-default" value="Back"></a>
+    </div></td></tr>
+
+  </table>
+</form>
+
+
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+
+
+
+<table class="table table-hover" style="width:90%; margin-top: 3%;" align="center">
+    <thead>
+        <tr>
+
+            <th> Date: </th>
+            <th> Title:</th>
+            <th> Author:</th>
+            <th> Price:</th>
+            <th>Action:</th>
+        </tr>
+    </thead>
+    <tbody>
+        {%for row in data: %}
+        <tr style="height: 3%;">
+            <td> {{ row[1]}} </td>
+            {%for col in row[2:4]: %}
+            <td>{{ col }}</td>
+            {%endfor%}
+            <td> {{'%0.2f'| format(row[4]|float)}} </td>
+            <td><a href="/details/{{row[0]}}">Details</a><br>
+        </tr>
+        {%endfor%}
+
+        <tr style="font-size: 18px; text-align: right;">
+            <td></td>
+            <td></td>
+            <th style="text-align: right ">&Sigma;</th>
+            <th> {{'%0.2f'| format(total_spendings|float)}}</th>
+            <td></td>
+        </tr>
+
+    </tbody>
+</table>
+
+
+
+
+
+
+{% endblock %}
