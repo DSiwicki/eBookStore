@@ -7,7 +7,7 @@ from flask_mail import Mail, Message
 from flask_googlemaps import GoogleMaps
 from flask_googlemaps import Map
 
-from core_functions import hash_string, check_string
+from core_functions import hash_string, check_string, get_secret
 from mail_functions import order_conf, registration_conf
 ########################################################################################################################
 
@@ -32,9 +32,7 @@ app.config.update(
 
 mail = Mail(app)
 
-f = open("api.txt", "r")
-api_key = f.readline()
-f.close()
+api_key = get_secret(secret_name = "google_api_key")
 
 GoogleMaps(app, key = api_key)
 
@@ -438,8 +436,8 @@ def about():
 
 @app.route('/contact')
 def contact():
-    map = Map(
-        identifier = 'mapa_wne',
+    wne_map = Map(
+        identifier = 'wne_map',
         lat= 52.247186,
         lng= 21.003806,
         markers=[(52.247186, 21.003806)],
@@ -447,7 +445,7 @@ def contact():
         style = "height: 400px; width: 90%; margin-left: 5%;"
     )
 
-    return render_template('contact.html', page_title = "Contact", mapa_wne = map)
+    return render_template('contact.html', page_title = "Contact", wne_map = wne_map)
 
 
 
