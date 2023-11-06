@@ -16,10 +16,7 @@ app = Flask(__name__)
 
 db = 'uAiYPtSRGHGzIrWe.db'
 
-f = open("access.txt", "r")
-acc = f.readline()
-m, p =  acc.split(" ", 1)
-f.close()
+m, p = get_secret("mail_access").split(":")
 
 app.config.update(
 	DEBUG=True,

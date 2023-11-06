@@ -16,7 +16,7 @@ def check_string(hashed_string, provided_string):
 def get_secret(secret_name):
 
     session = boto3.session.Session()
-    client = session.client(service_name = 'secretsmanager', region_name = "us-east-2")
+    client = session.client(service_name = 'secretsmanager', region_name = "us-east-1")
 
     try:
         get_secret_value_response = client.get_secret_value( SecretId=secret_name )
