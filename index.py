@@ -1,35 +1,27 @@
-from flask import Flask, render_template, request, redirect, url_for, make_response, json
+import os
 import sqlite3
 import datetime
 import pandas as pd
 from flask_mail import Mail, Message
+from flask import Flask, render_template, request, redirect, url_for, make_response, json
+
 
 from flask_googlemaps import GoogleMaps
 from flask_googlemaps import Map
 
-from core_functions import hash_string, check_string, get_secret
+from core_functions import hash_string, check_string
 from mail_functions import order_conf, registration_conf
 ########################################################################################################################
 
 app = Flask(__name__)
-#application = app
 
-db = 'uAiYPtSRGHGzIrWe.db'
+db = os.getenv("DATABASE")
 
-m, p = get_secret("mail_access").split(":")
-
-app.config.update(
-	DEBUG=True,
-	MAIL_SERVER = 'smtp.gmail.com',
-	MAIL_PORT = 465,
-	MAIL_USE_SSL = True,
-	MAIL_USERNAME = m,
-	MAIL_PASSWORD = p
-	)
+m, p = os.getenv("MAIL_LOGIN"), os.getenv("MAIL_PASS")
 
 mail = Mail(app)
 
-api_key = get_secret(secret_name = "google_api_key")
+api_key = os.getenv("API_KEY")
 
 GoogleMaps(app, key = api_key)
 
