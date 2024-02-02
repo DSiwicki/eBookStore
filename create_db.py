@@ -24,3 +24,51 @@ c.execute("INSERT INTO users (name, login, mail, password, rank, reg_time) VALUE
 conn.commit()
 
 c.close()
+
+
+#CREATE TABLE IF NOT EXISTS logs 
+# (
+#     login TEXT NOT NULL, 
+#     dt TEXT NOT NULL, 
+#     id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT
+# );
+
+#  CREATE TABLE IF NOT EXISTS ebooks_storage
+#  ( 
+#      id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+#      title TEXT NOT NULL, 
+#      author TEXT, 
+#      year INTEGER, 
+#      price NUMERIC NOT NULL, 
+#      isbn TEXT NOT NULL, 
+#      publisher TEXT, 
+#      details TEXT
+# );
+
+# CREATE TABLE sales
+# (
+#     id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+#     user_id INTEGER NOT NULL, 
+#     book_id INTEGER NOT NULL, 
+#     dt TEXT NOT NULL, 
+#     cost INTEGER NOT NULL
+# );
+
+# CREATE TABLE IF NOT EXISTS users
+# (
+#     id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+#     name TEXT NOT NULL, 
+#     login TEXT NOT NULL UNIQUE, 
+#     mail TEXT NOT NULL UNIQUE, 
+#     password TEXT NOT NULL, 
+#     rank TEXT NOT NULL, 
+#     reg_time TEXT NOT NULL
+# );
+
+# CREATE TABLE IF NOT EXISTS wishlist 
+# (
+#     id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT, 
+#     user_id INTEGER NOT NULL, 
+#     book_id INTEGER NOT NULL, 
+#     dt INTEGER NOT NULL
+# );
