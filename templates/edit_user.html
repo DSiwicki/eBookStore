@@ -4,7 +4,7 @@
 {% block content %}
 
 
-<form action="/edit_user/{{result[0]}}" method="POST">
+<form action="/ebookstore/edit_user/{{result[0]}}" method="POST">
 
 <table class="table" style=" width:40%;" align="center">
     <tr><th>               Registration Date: </th><td> {{result[4]}} </td></tr>
@@ -28,7 +28,7 @@
     <tr><th></th><td>
 <div align="center">
 <input type="submit" class="btn btn-default" name="save" value="Save changes!">
-    <a href="/users"><input type="button" class="btn btn-default" value="Back"></a>
+    <a href="/ebookstore/users"><input type="button" class="btn btn-default" value="Back"></a>
 </div></td></tr>
   </table>
 </form>

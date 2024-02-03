@@ -4,7 +4,7 @@
 {% block content %}
 
 
-<form class="navbar-form navbar-left" action="/search" method="POST" style="margin-left: 5%; margin-bottom: 3%;">
+<form class="navbar-form navbar-left" action="/ebookstore/search" method="POST" style="margin-left: 5%; margin-bottom: 3%;">
     <div class="input-group" >
         <input class="form-control" placeholder="Search" name="search_value" id="srch-term" type="text">
         <div class="input-group-btn">
@@ -32,7 +32,7 @@
             <td>{{col}}</td>
             {%endfor%}
             <td align = "right"> {{'%0.2f'| format(row[4]|float)}} </td>
-            <td><a href="/details/{{row[0]}}">Details</a><br>
+            <td><a href="/ebookstore/details/{{row[0]}}">Details</a><br>
         </tr>
         {%endfor%}
     </tbody>

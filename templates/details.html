@@ -23,11 +23,11 @@
     <th>
     </th>
     <td>
-    <a href="/order/{{details[0]}}"><input type="button" class="btn btn-default" value="Buy"></a>
-    {% if wished == 0 %} <a href="/wish/{{details[0]}}"><input type="button" class="btn btn-default" value="Add to WishList!"></a>
-    {% else %} <a href="/unwish/{{details[0]}}"><input type="button"  class="btn btn-outline-danger" value="Drop from WishList!"></a>
+    <a href="/ebookstore/order/{{details[0]}}"><input type="button" class="btn btn-default" value="Buy"></a>
+    {% if wished == 0 %} <a href="/ebookstore/wish/{{details[0]}}"><input type="button" class="btn btn-default" value="Add to WishList!"></a>
+    {% else %} <a href="/ebookstore/unwish/{{details[0]}}"><input type="button"  class="btn btn-outline-danger" value="Drop from WishList!"></a>
     {%endif %}
-    <a href="/search"><input type="button" class="btn btn-default" value="Back"></a>
+    <a href="/ebookstore/search"><input type="button" class="btn btn-default" value="Back"></a>
     </td>
 </tr>
 

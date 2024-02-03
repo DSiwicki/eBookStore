@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<form class="navbar-form navbar-left" action="/users" method="POST" style="margin-left: 10%; margin-bottom: 3%;">
+<form class="navbar-form navbar-left" action="/ebookstore/users" method="POST" style="margin-left: 10%; margin-bottom: 3%;">
     <div class="input-group" >
         <input class="form-control" placeholder="Search" name="search_value" id="srch-term" type="text">
         <div class="input-group-btn">
@@ -32,8 +32,8 @@
             <td>{{col}}</td>
             {%endfor%}
             <td align = "left">
-                <a href="/edit_user/{{row[1]}}"> Edit </a><br>
-                <a href="/delete_user/{{row[1]}}"> Delete </a>
+                <a href="/ebookstore/edit_user/{{row[1]}}"> Edit </a><br>
+                <a href="/ebookstore/delete_user/{{row[1]}}"> Delete </a>
             </td>
 
         </tr>

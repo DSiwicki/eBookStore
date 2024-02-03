@@ -91,10 +91,10 @@ html, body{
     </div>
 
     <ul class="nav navbar-nav">
-      <li class="active"><a href="/index">Home</a></li>
+      <li class="active"><a href="/ebookstore/index">Home</a></li>
 
 
-      <li><a href="/search">eBooks</a></li>
+      <li><a href="/ebookstore/search">eBooks</a></li>
 
 
 
@@ -103,8 +103,8 @@ html, body{
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">User Panel
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="/profile"> User profile </a></li>
-                  <li><a href="/history">Orders</a></li>
+                  <li><a href="/ebookstore/profile"> User profile </a></li>
+                  <li><a href="/ebookstore/history">Orders</a></li>
                 </ul>
             </li>
         {% endif %}
@@ -115,21 +115,21 @@ html, body{
                 <span class="caret"></span></a>
                 <ul class="dropdown-menu">
 
-                  <li><a href="/all_ebooks"> All ebooks </a></li>
-                  <li><a href="/sales"> Sales managment</a></li>
-                  <li><a href="/users"> Users management</a></li>
+                  <li><a href="/ebookstore/all_ebooks"> All ebooks </a></li>
+                  <li><a href="/ebookstore/sales"> Sales managment</a></li>
+                  <li><a href="/ebookstore/users"> Users management</a></li>
                 </ul>
             </li>
       {% endif %}
-        <li><a href="/about"> About Us</a></li>
-        <li><a href="/contact"> Contact </a></li>
+        <li><a href="/ebookstore/about"> About Us</a></li>
+        <li><a href="/ebookstore/contact"> Contact </a></li>
 
     </ul>
 
 
 
     <ul class="nav navbar-nav navbar-right">
-      <form class="navbar-form navbar-left" action="/search" method="POST">
+      <form class="navbar-form navbar-left" action="/ebookstore/search" method="POST">
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Search" name="search_value">
                 <div class="input-group-btn">
@@ -141,11 +141,11 @@ html, body{
       </form>
 
         {% if request.cookies.get("rank") == None %}
-                <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                <li><a href="/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                <li><a href="/ebookstore/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                <li><a href="/ebookstore/signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         {% endif %}
         {% if request.cookies.get("rank") in ['user', 'admin'] %}
-            <li><a href="/logout">LogOut <span class="glyphicon glyphicon-log-out"></span></a></li>
+            <li><a href="/ebookstore/logout">LogOut <span class="glyphicon glyphicon-log-out"></span></a></li>
         {% endif %}
 
     </ul>
@@ -182,13 +182,13 @@ html, body{
             </tr>
             <tr></tr>
             <tr>
-                <td width=33%> <a href="/about">About eBook Store</a></td>
-                {% if request.cookies.get("rank") in ['user', 'admin'] %}<td width=33%> <a href="/profile">Your profile</a></td>{% endif %}
+                <td width=33%> <a href="/ebookstore/about">About eBook Store</a></td>
+                {% if request.cookies.get("rank") in ['user', 'admin'] %}<td width=33%> <a href="/ebookstore/profile">Your profile</a></td>{% endif %}
             </tr>
             <tr>
 
-                <td> <a href="/contact">Contact us</a></td>
-                {% if request.cookies.get("rank") in ['user', 'admin'] %}<td> <a href="/history">Your orders</a></td>{% endif %}
+                <td> <a href="/ebookstore/contact">Contact us</a></td>
+                {% if request.cookies.get("rank") in ['user', 'admin'] %}<td> <a href="/ebookstore/history">Your orders</a></td>{% endif %}
 
             </tr>
 

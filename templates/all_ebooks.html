@@ -7,7 +7,7 @@
 
 <table style="margin-left: 5%; margin-bottom: 3%;">
     <td>
-<form class="navbar-form navbar-left" action="/search" method="POST">
+<form class="navbar-form navbar-left" action="/ebookstore/search" method="POST">
     <div class="input-group">
         <input class="form-control" placeholder="Search" name="search_value" id="srch-term" type="text">
         <div class="input-group-btn">
@@ -15,8 +15,8 @@
         </div>
     </div>
 </form></td>
-<td><a href="/new_ebook"><input type="button" class="btn btn-default" value="Add eBook"></a></td>
-</table>
+<td><a href="/ebookstore/new_ebook"><input type="button" class="btn btn-default" value="Add eBook"></a></td>
+</table
 
 <table class="table table-hover" style="width:90%; height: 100%;" align="center">
     <thead>
@@ -38,9 +38,9 @@
             <td align = "right"> {{'%0.2f'| format(row[4]|float)}} </td>
             <td></td>
             <td align = "left">
-                <a href="/edit_ebook/{{row[0]}}"> Edit </a>
+                <a href="/ebookstore/edit_ebook/{{row[0]}}"> Edit </a>
                 <br>
-                <a href="/delete_ebook/{{row[0]}}"> Delete </a>
+                <a href="/ebookstore/delete_ebook/{{row[0]}}"> Delete </a>
             </td>
         </tr>
         {%endfor%}
