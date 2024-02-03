@@ -34,7 +34,7 @@ app.config.update(
 	MAIL_USERNAME = os.getenv("MAIL_LOGIN"),
 	MAIL_PASSWORD = os.getenv("MAIL_PASS")
 )
-#mail = Mail(app)
+mail = Mail(app)
 
 api_key = os.getenv("API_KEY")
 GoogleMaps(app, key = api_key)
@@ -81,7 +81,7 @@ def login():
 
         if result is not None:
             if check_string(result[0], ProvidedPassword):
-                resp = make_response(redirect('/index'))
+                resp = make_response(redirect('/ebookstore/index'))
                 resp.set_cookie("user", ProvidedLogin)
                 resp.set_cookie("rank", result[1])
                 dt = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%s")
@@ -101,7 +101,7 @@ def login():
 
 @app.route('/logout')
 def logout():
-    resp = make_response(redirect('/index'))
+    resp = make_response(redirect('/ebookstore/index'))
     resp.set_cookie("user", expires = 0)
     resp.set_cookie("rank", expires = 0)
     return resp
