@@ -63,7 +63,7 @@ def registration():
         msg.body = registration_conf(ProvidedName)
         #mail.send(msg)
 
-        return redirect('/login')
+        return redirect('/ebookstore/login')
     return render_template('registration.html', page_title = "Register Now!")
 
 
@@ -175,7 +175,7 @@ def order_book(book_id):
             user_mail = query_result[1]
 
         except:
-            return redirect('/login')
+            return redirect('/ebookstore/login')
         cursor.execute("SELECT title, author, isbn, publisher, price  FROM ebooks_storage WHERE id LIKE %s", [book_id])
         book_data = cursor.fetchone()
         print(book_data)
@@ -191,7 +191,7 @@ def order_book(book_id):
         msg.body = order_conf(request.cookies.get("user"), book_data)
         #mail.send(msg)
 
-        return redirect('/history')
+        return redirect('/ebookstore/history')
     else:
 
         cursor = conn.cursor()
@@ -268,7 +268,7 @@ def edit_ebook(book_id):
                   [new_title, new_author, new_year, new_price, new_isbn, new_publisher, new_details, book_id])
         conn.commit()
         cursor.close()
-        return redirect('/all_ebooks')
+        return redirect('/ebookstore/all_ebooks')
     else:
         cursor.execute("SELECT * FROM ebooks_storage WHERE id LIKE %s", [book_id])
         result = cursor.fetchone()
@@ -294,7 +294,7 @@ def add_ebook():
             [new_title, new_author, new_year, new_price, new_isbn, new_publisher, new_details])
         conn.commit()
         cursor.close()
-        return redirect('/all_ebooks')
+        return redirect('/ebookstore/all_ebooks')
     return render_template('new_ebook.html')
 
 
@@ -308,7 +308,7 @@ def delete_ebooks(book_id):
         cursor.execute("DELETE FROM ebooks_storage WHERE id LIKE %s", [book_id])
         conn.commit()
         cursor.close()
-        return redirect('/all_ebooks')
+        return redirect('/ebookstore/all_ebooks')
     else:
         cursor.execute("SELECT * FROM ebooks_storage WHERE id LIKE %s", [book_id])
         results = cursor.fetchone()
@@ -400,7 +400,7 @@ def edit_user(login):
             [new_name, new_login, new_mail, new_rank, login])
         conn.commit()
         cursor.close()
-        return redirect('/users')
+        return redirect('/ebookstore/users')
     else:
         cursor.execute("SELECT login, name, mail, rank, reg_time FROM users WHERE login LIKE %s", [login])
         result = cursor.fetchone()
@@ -417,7 +417,7 @@ def delete_user(login):
         cursor.execute("DELETE FROM users WHERE login LIKE %s", [login])
         conn.commit()
         cursor.close()
-        return redirect('/users')
+        return redirect('/ebookstore/users')
     else:
         cursor.execute("SELECT login, name, mail, rank, reg_time FROM users WHERE login LIKE %s", [login])
         results = c.fetchone()
@@ -434,12 +434,12 @@ def wish(book_id):
     try:
         user_id = cursor.fetchone()[0]
     except:
-        return redirect('/login')
+        return redirect('/ebookstore/login')
     now = datetime.datetime.now()
     cursor.execute("INSERT INTO wishlist (user_id, book_id, dt) VALUES (%s, %s, %s)", [user_id, book_id, now.strftime("%Y-%m-%d %H:%M:%s")])
     conn.commit()
     curosr.close()
-    return redirect('/profile')
+    return redirect('/ebookstore/profile')
 
 
 
@@ -453,7 +453,7 @@ def unwish(book_id):
     conn.commit()
     cursor.close()
 
-    return redirect('/details/' + str(book_id))
+    return redirect('/ebookstore/details/' + str(book_id))
 
 
 @app.route('/about')
