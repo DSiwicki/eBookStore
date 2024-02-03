@@ -2,7 +2,7 @@
 
 **eBookStore** was created in January 2018 as part of an assessment of the course [Python and SQL: intro / SQL platforms](https://usosweb.wne.uw.edu.pl/kontroler.php?_action=katalog2/przedmioty/pokazPrzedmiot&prz_kod=2400-DS1SQL) on my Master Studies - Data Science and Business Analytics @ [Faculty of Economic Sciences, University of Warsaw](www.wne.uw.edu.pl). It was my first ever project in Python.
 
-:website: Now application is available on siwicki[dot]co/ebookstore 
+:earth_americas Now application is available on siwicki[dot]co/ebookstore 
 
 
 ### The goal of the assessment
